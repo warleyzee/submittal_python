@@ -31,13 +31,12 @@ class Save_File():
                     'date_current': date_current}
         doc.render(context)
         doc.save("Submittal #{} - {}.docx".format(no_submittal, submittal))
-        # doc.save("teste.docx")
 
         convert(r"C:\Users\Warley Souza\Music\Submittal\Submittal #{} - {}.docx".format(no_submittal, submittal),
                 r"C:\Users\Warley Souza\Music\Submittal\Submittal #{} - {}.pdf".format(no_submittal, submittal))  
             
 
-test = Save_File()
-print(test.data_information())
+# test = Save_File()
+# print(test.data_information())
 
 

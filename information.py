@@ -1,6 +1,7 @@
 from datetime import date
 
 
+
 class Information(): 
     def date_current(self,):
         
@@ -43,13 +44,15 @@ class Information():
         data_current = data.date_current()
         self.information = []
 
+        print()
         submittal = str(input("Name Submittal: "))
-        description = str(input("Discription: "))
         to_submittal = str(input("Submitall To: "))
+        description = str(input("Discription: "))
         no_submittal = str(input("Submitall No: "))
         date_submittal = str(input("Date Submitall: "))
         response = str(input("Response Required By: "))
         info = str(input("Information: "))
+        print()
         
 
         self.information = submittal, description, to_submittal, no_submittal, date_submittal, response,info, data_current
