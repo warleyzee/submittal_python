@@ -112,5 +112,5 @@ class Send_Email():
     
        
 
-test = Send_Email()
-print(test.send_email())
+# test = Send_Email()
+# print(test.send_email())

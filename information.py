@@ -46,11 +46,17 @@ class Information():
 
         print()
         submittal = str(input("Name Submittal: "))
+        print()
         to_submittal = str(input("Submitall To: "))
+        print()
         description = str(input("Discription: "))
+        print()
         no_submittal = str(input("Submitall No: "))
+        print()
         date_submittal = str(input("Date Submitall: "))
+        print()
         response = str(input("Response Required By: "))
+        print()
         info = str(input("Information: "))
         print()
         
