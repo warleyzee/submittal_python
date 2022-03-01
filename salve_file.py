@@ -20,7 +20,7 @@ class Save_File():
         info = data[6]
         date_current = data[7]
 
-        doc = DocxTemplate("prototipe_submittal.docx")
+        doc = DocxTemplate("prototype_submittal.docx")
         context = { 'submittal': submittal,    
                     'description': description,
                     'to': to_submittal,

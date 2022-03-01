@@ -4,10 +4,7 @@ from move_file import Move_file
 from send_email import Send_Email
 
 print()
-print("\033[1;36;40m\033[m \033[1;32;40m\033[m \033[1;36;40m### CRIANDO SUBMITTAL ###\033[m")
-info = Information().write_information()
-
-# Information = info.write_information()
+print("\033[4;36;40m### CRIANDO SUBMITTAL ###\033[m")
 
 
 save = Save_File()
