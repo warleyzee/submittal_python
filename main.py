@@ -10,9 +10,17 @@ print("\033[4;36;40m### CRIANDO SUBMITTAL ###\033[m")
 save = Save_File()
 get_save = save.data_information()
 
-move = Save_File()
-move.move_file()
+# move = Move_file()
+# move.move_file()
 
 
 send = Send_Email()
 send.send_email()
+
+
+# question = str(input("Deseja deletar o arquivo Word? (Yes or No)"))
+
+# if question == 'Yes' or 'yes':
+#     test.delete_file()
+# else:
+#     print("Nenhum arquivo deletado")

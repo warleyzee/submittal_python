@@ -31,6 +31,31 @@ class Merge():
 
         mergeFile.write("Submittal #138.pdf")
 
+
 test = Merge()
-test.merge_pdf()
+
+
+merge = ''
+
+while merge != 'no':
+    merge = input(('Deseja anexar algum arquivo? (Yes/No): '))
+    teste = merge
+
+    if teste == 'Yes' or teste == 'yes':
+        test.merge_pdf()        
+    else:
+        print('Sem arquivo para anexar!')
+print('Yes, the password is You may enter.')
+
+
+# password = ''
+
+# while password != 'password':
+#     print('What is the password?')
+#     password = input()
+
+# print('Yes, the password is ' + password + '. You may enter.')
+
+# test = Merge()
+# test.merge_pdf()
 
