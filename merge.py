@@ -1,61 +1,60 @@
 import PyPDF2 
 import os
-
-# from PyPDF2 import PdfFileMerger
-
-# pdfs = ['Rawlplug.pdf', 'Rawlplug_r.pdf']
-
-# merger = PdfFileManager()
-
-# for pdf in pdfs:
-#     merger.append(pdf)
-
-# merger.write("Submittal #138 - Fixing Bolt.pdf")
-# merger.close()
-
+from time import sleep
+import os
 
 class Merge():
 
     def merge_pdf(self, ):
 
-        file = str(input("Nome do arquivo para unir: "))
-        file2 = str(input("Nome do arquivo para unir: "))
-
+        attachment = ''
         mergeFile = PyPDF2.PdfFileMerger()
+        self.lista_file = []
+        os.chdir(r"C:\Users\Warley Souza\Music\Submittal\File_PDF")
+        os.listdir()
+        
+        for file in os.listdir():
+            str_pdf = file[-3:]
 
-        mergeFile.append(PyPDF2.PdfFileReader('Submittal.pdf', 'rb'))
+            if str_pdf == "pdf":
+                self.lista_file.append(file)
 
-        mergeFile.append(PyPDF2.PdfFileReader(f'{file}.pdf', 'rb'))
+                while attachment != 'no':
+                    print()
+                    attachment =str(input("\033[2;36;40m Desejar anexar algum arquivo? (yes/no): \033[m"))
+                    msg = attachment
 
-        mergeFile.append(PyPDF2.PdfFileReader(f'{file2}.pdf', 'rb'))
+                    if msg == 'yes':
+                        for file in os.listdir():
+                            str_pdf = file[-3:]
 
-        mergeFile.write("Submittal #138.pdf")
+                            if str_pdf == "pdf":
+                                try:
+                                    self.lista_file.append(file)
+                                except:
+                                    print("Sem Arquivo para anexar")
+
+                            # file = str(input("\033[1;34;40mNome do arquivo para unir: \033[m"))
+                            # print()
+
+                            
+                                # self.lista_file.append(file)
+
+                    for item in self.lista_file:
+                        mergeFile.append(PyPDF2.PdfFileReader(f'{item}', 'rb'))
+                        print()
+                        sleep(2)    
+                        print()
+                        mergeFile.write(f'{name_submittal}.pdf')
+                        print()
+                        sleep(2)
+                    else:
+                        print("Sem arquivo para anexar!")
+
+                name_submittal = str(input("\033[1;34;40mComo deseja salvar o arquivo: \033[m"))
+                print("\033[1;32;40m  Arquivos anexado! \033[m")
 
 
 test = Merge()
-
-
-merge = ''
-
-while merge != 'no':
-    merge = input(('Deseja anexar algum arquivo? (Yes/No): '))
-    teste = merge
-
-    if teste == 'Yes' or teste == 'yes':
-        test.merge_pdf()        
-    else:
-        print('Sem arquivo para anexar!')
-print('Yes, the password is You may enter.')
-
-
-# password = ''
-
-# while password != 'password':
-#     print('What is the password?')
-#     password = input()
-
-# print('Yes, the password is ' + password + '. You may enter.')
-
-# test = Merge()
-# test.merge_pdf()
+test.merge_pdf()
 

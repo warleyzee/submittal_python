@@ -1,47 +1,31 @@
-import os 
-from email.message import EmailMessage
-from account import Account
 import smtplib
 from email import encoders
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from bs4 import BeautifulSoup as bs
+from account import Account
 
-
-
-#configurar e-mail
 class Send_Email():
 
-    def send_mail(email, password, FROM, TO, msg):
-        # initialize the SMTP server
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-        # connect to the SMTP server as TLS mode (secure) and send EHLO
-        server.starttls()
-        # login to the account using the credentials
-        server.login(email, password)
-        # send the email
-        server.sendmail(FROM, TO, msg.as_string())
-        # terminate the SMTP session
-        server.quit() 
+    def send_email(self, ):
+
+        account_info = Account()
+        account = account_info.info_Account()
 
 
-    def send_email(self,):
-        self.test = Account().info_Account()
-        self.send_email = Send_Email()
-    
-# Create E-mail
-
-        # your credentials
-        email = self.test[0]
-        password = self.test[1]
-
+        # your email
+        email = account[0]
+        # your password
+        password = account[1]
         # the sender's email
-        FROM = self.test[0]
+        FROM = account[0]
         # the receiver's email
-        TO = self.test[3]
+        TO   = account[3] 
         # the subject of the email (subject)
-        subject = self.test[2]
+        subject = account[2] 
+        # The mensage
+        mensage = account[4]
 
         msg = MIMEMultipart("alternative")
         # set the sender's email
@@ -50,27 +34,43 @@ class Send_Email():
         msg["To"] = TO
         # set the subject
         msg["Subject"] = subject
-        # set the mensage
-        html = self.test[4]
+
+        # set the body of the email as HTML
+        html =  mensage
+
         # make the text version of the HTML
         text = bs(html, "html.parser").text
 
+        # set the body of the email as HTML
+        # html = open("mail.html").read()
+        # make the text version of the HTML
+        text = bs(html, "html.parser").text
 
         text_part = MIMEText(text, "plain")
         html_part = MIMEText(html, "html")
-
-        print(msg.as_string())
-
         # attach the email body to the mail message
         # attach the plain text version first
         msg.attach(text_part)
         msg.attach(html_part)
 
-        # print(msg.as_string())
+        print(msg.as_string())
 
-        # file = str(input("Qual arquivo deseja anexa: "))
+        def send_mail(email, password, FROM, TO, msg):
+            # initialize the SMTP server
+            server = smtplib.SMTP("smtp.gmail.com", 587)
+            # connect to the SMTP server as TLS mode (secure) and send EHLO
+            server.starttls()
+            # login to the account using the credentials
+            server.login(email, password)
+            # send the email
+            server.sendmail(FROM, TO, msg.as_string())
+            # terminate the SMTP session
+            server.quit()
+
+
+        attachment = str(input("Qual arquivo deseja anexa: "))
         files_to_send = [
-            "Submittal.pdf",
+            attachment+'.pdf',
         ]
 
         # initialize the message we wanna send
@@ -105,11 +105,9 @@ class Send_Email():
             # add the header
             attach_part.add_header("Content-Disposition", f"attachment; filename= {file}")
             msg.attach(attach_part)
+        input()
         # send the mail
-        self.send_email.send_mail(email, password, FROM, TO)
-        
-    
-       
+        send_mail(email, password, FROM, TO, msg)
 
-# test = Send_Email()
-# print(test.send_email())
+# test = Send_Email
+# test.send_email()

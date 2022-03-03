@@ -12,13 +12,13 @@ class Account():
         # mensagem = str(input("Digite a mensagem: "))
 
         name = "warleyzee@gmail.com"
-        # password = getpass.getpass(prompt="Please Enter your password")
-        password = "w@@##2492"
+        password = getpass.getpass(prompt="Please Enter your password")
+        # password = ""
         subject = "E-mail com anexo"
         destinatario = "warleyzee@hotmail.com"
-        mensagem = "Voce tem uma email com anexo"
+        mensage = "Voce tem uma email com anexo"
 
-        self.account = name, password, subject, destinatario, mensagem
+        self.account = name, password, subject, destinatario, mensage
 
         return self.account
 

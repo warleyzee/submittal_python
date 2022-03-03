@@ -45,19 +45,19 @@ class Information():
         self.information = []
 
         print()
-        submittal = str(input("\033[1;34;40mName Submittal: \033[m"))
+        submittal = str(input("\033[1;34;40mName Submittal:\033[m"))
         print()
-        to_submittal = str(input("\033[1;34;40mSubmitall To: \033[m")) 
+        to_submittal = str(input("\033[1;34;40mSubmitall To:\033[m")) 
         print()
-        description = str(input("\033[1;34;40mDiscription: \033[m"))
+        description = str(input("\033[1;34;40mDiscription:\033[m"))
         print()
-        no_submittal = str(input("\033[1;34;40mSubmitall Number: \033[m"))
+        no_submittal = str(input("\033[1;34;40mSubmitall Number:\033[m"))
         print()
-        date_submittal = str(input("\033[1;34;40mDate Submitall: \033[m"))
+        date_submittal = str(input("\033[1;34;40mDate Submitall:\033[m"))
         print()
-        response = str(input("\033[1;34;40mResponse Required By: \033[m"))
+        response = str(input("\033[1;34;40mResponse Required By:\033[m"))
         print()
-        info =  str(input("\033[1;34;40mInformation: \033[m"))
+        info =  str(input("\033[1;34;40mInformation:\033[m"))
         print()
         
 
